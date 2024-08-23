@@ -61,7 +61,7 @@ VALUES
     ;
 
 
-#The following SQL was written to aanswer specific questions about the content on Netflix:
+#The following SQL was written to answer specific questions about the content on Netflix:
 
 #1. How many movie titles are there in the database? (movies only, not tv shows)
 select count(*)
