@@ -1,5 +1,5 @@
-# Here are potential answers to the example questions in the final SQL project. 
-# Note that there are often multiple ways to write SQL to come up with the same answer. 
+# #In this SQL, I'm querying a database with multiple tables to quantify digital media data which includes tables for 
+artists, albums, media tracks, invoices, and customers. 
 
 #1. 
 SELECT FirstName, LastName, CustomerId, Country 
