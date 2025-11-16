@@ -1,12 +1,12 @@
 #This project utilizes the following Superstore data: 
 
-CREATE TABLE superstore 
-item_id INTEGER PRIMARY KEY,
-item_name TEXT,
-category TEXT,
-price DECIMAL(10, 2),
-stock_quantity INTEGER,
-average_rating DECIMAL(3, 2)
+CREATE TABLE superstore (
+    item_id INTEGER PRIMARY KEY,
+    item_name TEXT,
+    category TEXT,
+    price DECIMAL(10, 2),
+    stock_quantity INTEGER,
+    average_rating DECIMAL(3, 2)
 );
 
 INSERT INTO superstore (item_id, item_name, category, price, stock_quantity, average_rating)
@@ -29,21 +29,24 @@ VALUES
 
 #For this project, I used SQL to query the Superstore database to get information about items sold at the store and their prices.
 
-#Write an SQL query that orders the items by price.​
+#Write a SQL query that orders the items by price.​
 SELECT item_name, price
 FROM superstore
 ORDER BY price desc;
 
-#Show a statistic about the item prices. 
-SELECT SUM (price)
-FROM superstore;
-
-#Show a statistic about the price for items in the "Kitchen Supplies" category.
-SELECT SUM (price)
+#What is the average amount spent on each item? 
+SELECT AVG(price) AS average_amount_spent, item_name
 FROM superstore
-WHERE category="Kitchen Supplies";
+GROUP BY item_name;
 
-#Show a statistic for the average prices for items in the "appliances" category.  
-SELECT AVG (price)
+#What is the most expensive kitchen supply item?
+SELECT item_name, price
 FROM superstore
-WHERE category="appliances";
+WHERE category = 'Kitchen Supplies'
+ORDER BY price DESC
+LIMIT 1;
+
+#How many Smart LED TVs are in stock?
+SELECT item_name, stock_quantity
+FROM superstore
+WHERE item_name= "Smart LED TV";
